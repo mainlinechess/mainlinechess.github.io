@@ -97,7 +97,7 @@ nav {
 .hero p {
   font-size: 1.125rem;
   color: var(--text-sub);
-  max-width: 480px;
+  max-width: 620px;
   margin: 0 auto 36px;
   line-height: 1.7;
 }
@@ -121,6 +121,20 @@ nav {
   transition: border-color 0.15s, background 0.15s;
 }
 .badge-btn:hover { border-color: var(--accent); text-decoration: none; }
+.home-details {
+  padding-top: 0;
+}
+.home-details .prose {
+  max-width: 620px;
+  margin: 0 auto;
+}
+.home-details .prose h2 {
+  margin-top: 0;
+}
+.home-cta {
+  color: var(--text);
+  font-weight: 700;
+}
 
 /* ── Legal / content pages ── */
 .page-header {
