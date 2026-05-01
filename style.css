@@ -40,11 +40,21 @@ nav {
   justify-content: space-between;
 }
 .nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--accent);
   letter-spacing: -0.3px;
 }
+.nav-brand img {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: block;
+}
+.nav-brand:hover { text-decoration: none; }
 .nav-links {
   display: flex;
   gap: 24px;
@@ -70,9 +80,11 @@ nav {
   max-width: var(--max-w);
   margin: 0 auto;
 }
-.hero-icon {
-  font-size: 4rem;
-  margin-bottom: 20px;
+.hero-logo {
+  width: 96px;
+  height: 96px;
+  border-radius: 22px;
+  margin: 0 auto 20px;
   display: block;
 }
 .hero h1 {
@@ -212,6 +224,42 @@ footer {
   font-size: 0.8125rem;
 }
 .footer-links a:hover { color: var(--text-sub); text-decoration: none; }
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.footer-social-label {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.footer-social-links {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer-social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-sub);
+  font-size: 0.8125rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 10px;
+  transition: border-color 0.15s, color 0.15s;
+}
+.footer-social-links a:hover {
+  color: var(--text);
+  border-color: var(--accent);
+  text-decoration: none;
+}
 .footer-copy {
   color: var(--text-muted);
   font-size: 0.8125rem;
