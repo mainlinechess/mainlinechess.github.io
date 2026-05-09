@@ -26,7 +26,7 @@
   <div class="page">
     <div class="page-header">
       <h1>Download MainLine</h1>
-      <p class="meta" id="download-status">Detecting your device and redirecting...</p>
+      <p class="meta" id="download-status">Redirecting you to the right store...</p>
     </div>
 
     <div class="support-card">
@@ -73,18 +73,16 @@
       var statusEl = document.getElementById("download-status");
 
       if (isIOS) {
-        statusEl.textContent = "iOS device detected. Redirecting to the App Store...";
         window.location.replace(appStoreUrl);
         return;
       }
 
       if (isAndroid) {
-        statusEl.textContent = "Android device detected. Redirecting to Google Play...";
         window.location.replace(playStoreUrl);
         return;
       }
 
-      statusEl.textContent = "Could not detect iOS or Android. Please choose a store link below.";
+      statusEl.textContent = "Please choose your store below.";
     })();
   </script>
 
