@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download MainLine</title>
+  <meta name="description" content="Download MainLine for iOS and Android." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-brand" href="../">
+        <img src="../assets/mainline-logo.png" alt="MainLine logo" />
+        <span>MainLine</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../support/">Support</a></li>
+        <li><a href="../privacy/">Privacy</a></li>
+        <li><a href="../terms/">Terms</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page">
+    <div class="page-header">
+      <h1>Download MainLine</h1>
+      <p class="meta" id="download-status">Detecting your device and redirecting...</p>
+    </div>
+
+    <div class="support-card">
+      <h3>Store Links</h3>
+      <p>If you are not redirected automatically, choose your store below:</p>
+      <div class="badge-row" style="justify-content: flex-start;">
+        <a class="badge-btn" id="ios-link" href="https://apps.apple.com/us/app/mainline-chess-trainer/id6761091619" target="_blank" rel="noopener">
+          &#xf8ff;&nbsp; App Store
+        </a>
+        <a class="badge-btn" id="android-link" href="https://play.google.com/store/apps/details?id=com.benjamin.mainline" target="_blank" rel="noopener">
+          ▶&nbsp; Google Play
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <ul class="footer-links">
+        <li><a href="../support/">Support</a></li>
+        <li><a href="../privacy/">Privacy Policy</a></li>
+        <li><a href="../terms/">Terms of Use</a></li>
+      </ul>
+      <div class="footer-social">
+        <p class="footer-social-label">Follow Us</p>
+        <ul class="footer-social-links">
+          <li><a href="https://www.facebook.com/profile.php?id=61575449865300" target="_blank" rel="noopener">Facebook <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.instagram.com/mainline_chess/" target="_blank" rel="noopener">Instagram <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.youtube.com/channel/UCPhpKKTEaLAzoLeM3a-cCpA" target="_blank" rel="noopener">YouTube <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.tiktok.com/@mainline_chess" target="_blank" rel="noopener">TikTok <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">&copy; 2026 MainLine. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function redirectByDevice() {
+      var appStoreUrl = "https://apps.apple.com/us/app/mainline-chess-trainer/id6761091619";
+      var playStoreUrl = "https://play.google.com/store/apps/details?id=com.benjamin.mainline";
+      var ua = navigator.userAgent || navigator.vendor || window.opera || "";
+      var isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+      var isAndroid = /Android/i.test(ua);
+      var statusEl = document.getElementById("download-status");
+
+      if (isIOS) {
+        statusEl.textContent = "iOS device detected. Redirecting to the App Store...";
+        window.location.replace(appStoreUrl);
+        return;
+      }
+
+      if (isAndroid) {
+        statusEl.textContent = "Android device detected. Redirecting to Google Play...";
+        window.location.replace(playStoreUrl);
+        return;
+      }
+
+      statusEl.textContent = "Could not detect iOS or Android. Please choose a store link below.";
+    })();
+  </script>
+
+</body>
+</html>
