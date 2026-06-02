@@ -33,11 +33,11 @@
       <h3>Store Links</h3>
       <p>If you are not redirected automatically, choose your store below:</p>
       <div class="badge-row" style="justify-content: flex-start;">
-        <a class="badge-btn" id="ios-link" href="https://apps.apple.com/us/app/mainline-chess-trainer/id6761091619" target="_blank" rel="noopener">
-          &#xf8ff;&nbsp; App Store
+        <a class="badge-btn" id="ios-link" href="https://apps.apple.com/app/apple-store/id6761091619?pt=128701087&amp;ct=app_share&amp;mt=8" target="_blank" rel="noopener">
+          &#xf8ff;&nbsp; iOS App
         </a>
-        <a class="badge-btn" id="android-link" href="https://play.google.com/store/apps/details?id=com.benjamin.mainline" target="_blank" rel="noopener">
-          ▶&nbsp; Google Play
+        <a class="badge-btn" id="android-link" href="https://play.google.com/store/apps/details?id=com.benjamin.mainline&amp;utm_source=app_share&amp;utm_campaign=share_feature" target="_blank" rel="noopener">
+          ▶&nbsp; Android App
         </a>
       </div>
     </div>
@@ -63,22 +63,41 @@
     </div>
   </footer>
 
+  <script src="../assets/analytics.js"></script>
   <script>
     (function redirectByDevice() {
-      var appStoreUrl = "https://apps.apple.com/us/app/mainline-chess-trainer/id6761091619";
-      var playStoreUrl = "https://play.google.com/store/apps/details?id=com.benjamin.mainline";
+      var appStoreUrl = "https://apps.apple.com/app/apple-store/id6761091619?pt=128701087&ct=app_share&mt=8";
+      var playStoreUrl = "https://play.google.com/store/apps/details?id=com.benjamin.mainline&utm_source=app_share&utm_campaign=share_feature";
       var ua = navigator.userAgent || navigator.vendor || window.opera || "";
       var isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
       var isAndroid = /Android/i.test(ua);
       var statusEl = document.getElementById("download-status");
 
+      function redirectTo(url, store) {
+        var analytics = window.MainLineAnalytics;
+        var properties = {
+          store: store,
+          destination_url: url,
+          path: window.location.pathname
+        };
+
+        if (analytics && analytics.trackAndContinue) {
+          analytics.trackAndContinue("Website Download Redirected", properties, function () {
+            window.location.replace(url);
+          }, 500);
+          return;
+        }
+
+        window.location.replace(url);
+      }
+
       if (isIOS) {
-        window.location.replace(appStoreUrl);
+        redirectTo(appStoreUrl, "app_store");
         return;
       }
 
       if (isAndroid) {
-        window.location.replace(playStoreUrl);
+        redirectTo(playStoreUrl, "google_play");
         return;
       }
 
